@@ -32,7 +32,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
 
-          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFoundPage />} />
@@ -41,7 +41,7 @@ function App() {
 
           {/* 
             Protected routes with dashboard layout  */}
-          <Route path="/dashboard" element={
+          <Route path="/" element={
             <DashboardLayout>
               <Dashboard />
             </DashboardLayout>

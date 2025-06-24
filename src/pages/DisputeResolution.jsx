@@ -12,48 +12,48 @@ const DisputeResolution = () => {
         {
             id: 'BK001',
             payout: '#88837727',
-            recipient: 'Daniel Anderson',
-            bank: 'GTBank...7824',
-            amount: 'N20,000',
-            withdrawal: 'Weekly(Next Pay is Friday)',
-            requestDate: 'Jun 25,2025 9:15AM',
+            recipient: 'No-show',
+            bank: 'Player:Sarah K Vs Coach:David L.',
+            amount: '#BK-0625-4891',
+            withdrawal: 'Jun 26, 2024 10:30AM',
+            requestDate: 'Pending',
 
         },
         {
             id: 'BK002',
             payout: '#88837727',
-            recipient: 'Daniel Anderson',
-            bank: 'GTBank...7824',
-            amount: 'N20,000',
-            withdrawal: 'Weekly(Next Pay is Friday)',
-            requestDate: 'Jun 25,2025 9:15AM',
+            recipient: 'No-show',
+            bank: 'Player:Sarah K Vs Coach:David L.',
+            amount: '#BK-0625-4891',
+            withdrawal: 'Jun 26, 2024 10:30AM',
+            requestDate: 'Pending',
         },
         {
             id: 'BK003',
             payout: '#88837727',
-            recipient: 'Daniel Anderson',
-            bank: 'GTBank...7824',
-            amount: 'N20,000',
-            withdrawal: 'Weekly(Next Pay is Friday)',
-            requestDate: 'Jun 25,2025 9:15AM',
+            recipient: 'No-show',
+            bank: 'Player:Sarah K Vs Coach:David L.',
+            amount: '#BK-0625-4891',
+            withdrawal: 'Jun 26, 2024 10:30AM',
+            requestDate: 'Pending',
         },
         {
             id: 'BK004',
             payout: '#88837727',
-            recipient: 'Daniel Anderson',
-            bank: 'GTBank...7824',
-            amount: 'N20,000',
-            withdrawal: 'Weekly(Next Pay is Friday)',
-            requestDate: 'Jun 25,2025 9:15AM',
+            recipient: 'No-show',
+            bank: 'Player:Sarah K Vs Coach:David L.',
+            amount: '#BK-0625-4891',
+            withdrawal: 'Jun 26, 2024 10:30AM',
+            requestDate: 'Pending',
         },
         {
             id: 'BK005',
             payout: '#88837727',
-            recipient: 'Daniel Anderson',
-            bank: 'GTBank...7824',
-            amount: 'N20,000',
-            withdrawal: 'Weekly(Next Pay is Friday)',
-            requestDate: 'Jun 25,2025 9:15AM',
+            recipient: 'No-show',
+            bank: 'Player:Sarah K Vs Coach:David L.',
+            amount: '#BK-0625-4891',
+            withdrawal: 'Jun 26, 2024 10:30AM',
+            requestDate: 'Pending',
         }
     ];
 
@@ -110,22 +110,22 @@ const DisputeResolution = () => {
                     <thead className="bg-gray-50">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Payout ID
+                                Case ID
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Recipient
+                                Dispute Type
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Bank
+                                Parties Involved
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Amount
+                                Booking Reference
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Withdrawal Schedule
+                                Submitted Date
                             </th>
                                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
-                                Request Date
+                                Status
                             </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
                                 Action
@@ -154,7 +154,7 @@ const DisputeResolution = () => {
                                     {booking.requestDate}
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-[#946BEF] cursor-pointer hover:underline">
-                                    View Community
+                                    View Dispute
                                 </td>
                             </tr>
                         ))}

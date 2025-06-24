@@ -19,7 +19,7 @@ const Profile = () => {
 
         <div>
           <p className='font-semibold text-lg'>Name</p>
-          <p className='font-normal'>Make changes to your name</p>
+          <p className='font-normal max-w-[250px]'>Make changes to your name</p>
         </div>
 
         <div>
@@ -44,7 +44,7 @@ const Profile = () => {
       <div className='flex gap-32 py-9'>
         <div>
           <p className='font-semibold text-lg'>Email Address</p>
-          <p className='font-normal'>Make changes to your email</p>
+          <p className='font-normal max-w-[250px]'>Make changes to your email</p>
         </div>
 
         <div>
@@ -64,7 +64,7 @@ const Profile = () => {
 <div className='flex gap-24 py-9'>
         <div>
           <p className='font-semibold text-lg'>Password</p>
-          <p className='font-normal'>Make changes to your password</p>
+          <p className='font-normal max-w-[250px]'>Make changes to your password</p>
         </div>
 
         <div>

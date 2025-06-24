@@ -157,8 +157,8 @@ const Dashboard = () => {
 
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Total Bookings</p>
-                <p className='font-semibold text-3xl'>25</p>
+                <p className='text-sm'>Total Revenue</p>
+                <p className='font-semibold text-3xl'>N300M</p>
               </div>
 
               <div>
@@ -173,8 +173,8 @@ const Dashboard = () => {
 
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Facility Booking</p>
-                <p className='font-semibold text-3xl'>5</p>
+                <p className='text-sm'>Total Facilities</p>
+                <p className='font-semibold text-3xl'>500,000</p>
               </div>
 
               <div>
@@ -188,7 +188,7 @@ const Dashboard = () => {
           <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl py-2 px-2'>
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Coach Booking</p>
+                <p className='text-sm'>Total Coaches</p>
                 <p className='font-semibold text-3xl'>1</p>
               </div>
 
@@ -204,8 +204,8 @@ const Dashboard = () => {
           <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl py-2 px-2'>
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Coach Booking</p>
-                <p className='font-semibold text-3xl'>1</p>
+                <p className='text-sm'>Total Users</p>
+                <p className='font-semibold text-3xl'>200,000</p>
               </div>
 
               <div>
@@ -220,8 +220,8 @@ const Dashboard = () => {
           <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl py-2 px-2'>
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Coach Booking</p>
-                <p className='font-semibold text-3xl'>1</p>
+                <p className='text-sm'>Total Communities</p>
+                <p className='font-semibold text-3xl'>100,000</p>
               </div>
 
               <div>
@@ -236,8 +236,8 @@ const Dashboard = () => {
           <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl py-2 px-2'>
             <div className='flex gap-x-6 items-center'>
               <div>
-                <p className='text-sm'>Coach Booking</p>
-                <p className='font-semibold text-3xl'>1</p>
+                <p className='text-sm'>Total Sessions</p>
+                <p className='font-semibold text-3xl'>50,000</p>
               </div>
 
               <div>
@@ -253,7 +253,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-
+   <div className='flex justify-between py-1'>
+            <p className='font-semibold'>New Users</p>
+            <p className='text-[#946BEF]'>View All</p>
+          </div>
       <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-black border-r-[6px] border-b-[4px]">
         <table className="min-w-full">
           <thead className="bg-gray-50">
