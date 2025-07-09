@@ -35,7 +35,6 @@ import profile from '../../assets/profile.png';
 // MenuItem Component - Modified to handle special case for logout
 const MenuItem = ({ icon, title, path, collapsed, active, onClick }) => {
 
-  
   // If onClick is provided, use a button instead of a Link
   if (onClick) {
     return (
