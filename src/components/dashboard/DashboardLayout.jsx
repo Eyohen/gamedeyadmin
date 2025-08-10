@@ -86,7 +86,7 @@ const DashboardLayout = ({ children }) => {
 
   // Menu items configuration
   const menuItems = [
-    { path: "/", title: "Dashboard", icon: <LayoutDashboard size={20} /> },
+    { path: "/dashboard", title: "Dashboard", icon: <LayoutDashboard size={20} /> },
     { path: "/users", title: "Users", icon: <img src={community} size={25} /> },
     { path: "/sessions", title: "Sessions", icon:<Watch /> },
     { path: "/communities", title: "Communities", icon: <img src={community} size={25} /> },

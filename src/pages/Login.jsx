@@ -269,7 +269,7 @@ const Login = () => {
 
       if (result.success) {
         console.log('Login successful:', result.data);
-        navigate("/");
+        navigate("/dashboard");
       } else {
         setError(result.message || 'Invalid email or password');
       }
