@@ -1,7 +1,6 @@
+// App.jsx - for admin frontend
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
-import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import NotFoundPage from './pages/NotFoundPage';
@@ -14,8 +13,6 @@ import Explore from './pages/Explore';
 import Bookings from './pages/Bookings';
 import Teams from './pages/Teams';
 import Community from './pages/Community';
-import TransactionHistory from './pages/TransactionHistory';
-import Reviews from './pages/Reviews';
 import Profile from './pages/Profile';
 import CreateTeam from './pages/CreateTeam';
 import Dashboard from './pages/Dashboard';
