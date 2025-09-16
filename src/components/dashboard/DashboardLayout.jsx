@@ -280,7 +280,7 @@ const DashboardLayout = ({ children }) => {
   const menuItems = [
     { path: "/dashboard", title: "Dashboard", icon: <LayoutDashboard size={20} /> },
     { path: "/users", title: "Users", icon: <img src={community} className="w-5 h-5" alt="Users" /> },
-    { path: "/sessions", title: "Sessions", icon: <Watch size={20} /> },
+    // { path: "/sessions", title: "Sessions", icon: <Watch size={20} /> },
     { path: "/communities", title: "Communities", icon: <img src={community} className="w-5 h-5" alt="Communities" /> },
     { path: "/financial-oversight", title: "Financial Oversight", icon: <WalletMinimal size={20} /> },
     { path: "/dispute-resolution", title: "Disputes Resolution", icon: <OctagonAlert size={20} /> },
@@ -411,6 +411,7 @@ const DashboardLayout = ({ children }) => {
             
             {/* Header Right Side */}
             <div className="flex items-center gap-2 sm:gap-4">
+             <p>Admin</p>
               <button className="p-2 text-gray-500 hover:text-black rounded-full transition-colors">
                 <Bell size={18} className="sm:w-5 sm:h-5" />
               </button>
