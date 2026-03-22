@@ -20,6 +20,7 @@ import Users from './pages/Users';
 import Sessions from './pages/Sessions';
 import FinOversight from './pages/FinOversight';
 import DisputeResolution from './pages/DisputeResolution';
+import SessionPackages from './pages/SessionPackages';
 
 
 function App() {
@@ -89,6 +90,12 @@ function App() {
           <Route path="/financial-oversight" element={
             <DashboardLayout>
               <FinOversight />
+            </DashboardLayout>
+          } />
+
+          <Route path="/session-packages" element={
+            <DashboardLayout>
+              <SessionPackages />
             </DashboardLayout>
           } />
 

@@ -11,6 +11,7 @@ import {
   LayoutDashboard,
   Search,
   Watch,
+  Package,
   WalletMinimal,
   OctagonAlert
 } from 'lucide-react';
@@ -89,7 +90,7 @@ const DashboardLayout = ({ children }) => {
   const menuItems = [
     { path: "/dashboard", title: "Dashboard", icon: <LayoutDashboard size={20} /> },
     { path: "/users", title: "Users", icon: <img src={community} className="w-5 h-5" alt="Users" /> },
-    // { path: "/sessions", title: "Sessions", icon: <Watch size={20} /> },
+    { path: "/session-packages", title: "Session Packages", icon: <Package size={20} /> },
     { path: "/communities", title: "Communities", icon: <img src={community} className="w-5 h-5" alt="Communities" /> },
     { path: "/financial-oversight", title: "Financial Oversight", icon: <WalletMinimal size={20} /> },
     { path: "/dispute-resolution", title: "Disputes Resolution", icon: <OctagonAlert size={20} /> },
