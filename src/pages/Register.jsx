@@ -33,7 +33,7 @@ const Register = () => {
   const [selectedRole, setSelectedRole] = useState('');
 
   const roles = [
-    { id: 'user', label: 'User' },
+    { id: 'player', label: 'Player' },
     { id: 'facility-owner', label: 'Facility Owner' },
     { id: 'coach', label: 'Coach' }
   ];

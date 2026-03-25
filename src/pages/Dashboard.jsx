@@ -8,7 +8,7 @@
 // const Dashboard = () => {
 //   const { user } = useAuth();
 //   const [dashboardData, setDashboardData] = useState(null);
-//   const [recentUsers, setRecentUsers] = useState([]);
+//   const [recentPlayers, setRecentUsers] = useState([]);
 //   const [payoutRequests, setPayoutRequests] = useState([]);
 //   const [disputes, setDisputes] = useState([]);
 //   const [loading, setLoading] = useState(true);
@@ -17,7 +17,7 @@
 //   // Fetch dashboard overview data
 //   useEffect(() => {
 //     fetchDashboardData();
-//     fetchRecentUsers();
+//     fetchRecentPlayers();
 //     // fetchPayoutRequests();
 //     // fetchDisputes();
 //   }, []);
@@ -40,10 +40,10 @@
 //     }
 //   };
 
-//   const fetchRecentUsers = async () => {
+//   const fetchRecentPlayers = async () => {
 //     try {
 //       const token = localStorage.getItem('access_token');
-//       const response = await axios.get(`${URL}/api/admin/users?limit=5&sortBy=createdAt&sortOrder=DESC`, {
+//       const response = await axios.get(`${URL}/api/admin/players?limit=5&sortBy=createdAt&sortOrder=DESC`, {
 //         headers: {
 //           'Authorization': `Bearer ${token}`
 //         }
@@ -207,15 +207,15 @@
 //             <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl py-2 px-2'>
 //               <div className='flex gap-x-6 items-center'>
 //                 <div>
-//                   <p className='text-sm'>Total Users</p>
+//                   <p className='text-sm'>Total Players</p>
 //                   <p className='font-semibold text-3xl'>
-//                     {dashboardData ? formatNumber(dashboardData.users.total) : '0'}
+//                     {dashboardData ? formatNumber(dashboardData.players.total) : '0'}
 //                   </p>
 //                 </div>
 //                 <div>
 //                   <p className='text-green-500'><TrendingUp size={16} /></p>
 //                   <p className='text-green-500'>
-//                     {dashboardData ? dashboardData.users.newThisMonth : '0'}
+//                     {dashboardData ? dashboardData.players.newThisMonth : '0'}
 //                   </p>
 //                 </div>
 //               </div>
@@ -257,9 +257,9 @@
 //           </div>
 //         </div>
 
-//         {/* New Users Table */}
+//         {/* New Players Table */}
 //         <div className='flex justify-between py-1'>
-//           <p className='font-semibold'>New Users</p>
+//           <p className='font-semibold'>New Players</p>
 //           <p className='text-[#946BEF] cursor-pointer hover:underline'>View All</p>
 //         </div>
 //         <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-black border-r-[6px] border-b-[4px]">
@@ -281,7 +281,7 @@
 //               </tr>
 //             </thead>
 //             <tbody className="bg-white divide-y divide-gray-200">
-//               {recentUsers.map((user) => (
+//               {recentPlayers.map((user) => (
 //                 <tr key={user.id} className="hover:bg-gray-50">
 //                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
 //                     {user.firstName} {user.lastName}
@@ -409,7 +409,8 @@ import { useAuth } from '../context/AuthContext';
 const Dashboard = () => {
   const { user } = useAuth();
   const [dashboardData, setDashboardData] = useState(null);
-  const [recentUsers, setRecentUsers] = useState([]);
+  const [recentPlayers, setRecentPlayers] = useState([]);
+  const [recentCoaches, setRecentCoaches] = useState([]);
   const [payoutRequests, setPayoutRequests] = useState([]);
   const [disputes, setDisputes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -418,7 +419,8 @@ const Dashboard = () => {
   // Fetch dashboard overview data
   useEffect(() => {
     fetchDashboardData();
-    fetchRecentUsers();
+    fetchRecentPlayers();
+    fetchRecentCoaches();
     // fetchPayoutRequests();
     // fetchDisputes();
   }, []);
@@ -441,22 +443,39 @@ const Dashboard = () => {
     }
   };
 
-  const fetchRecentUsers = async () => {
+  const fetchRecentPlayers = async () => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await axios.get(`${URL}/api/admin/users?limit=5&sortBy=createdAt&sortOrder=DESC`, {
+      const response = await axios.get(`${URL}/api/admin/players?limit=10&sortBy=createdAt&sortOrder=DESC&playersOnly=true`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
 
       if (response.data.success) {
-        setRecentUsers(response.data.data);
+        setRecentPlayers(response.data.data);
       }
     } catch (err) {
-      console.error('Error fetching recent users:', err);
+      console.error('Error fetching recent players:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchRecentCoaches = async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      const response = await axios.get(`${URL}/api/admin/coaches?limit=10`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.data.success) {
+        setRecentCoaches(response.data.data);
+      }
+    } catch (err) {
+      console.error('Error fetching recent coaches:', err);
     }
   };
 
@@ -608,15 +627,15 @@ const Dashboard = () => {
             <div className='border border-black border-r-[6px] border-b-[4px] rounded-2xl p-3 lg:p-4'>
               <div className='flex gap-x-4 lg:gap-x-6 items-center'>
                 <div className="flex-1">
-                  <p className='text-xs sm:text-sm'>Total Users</p>
+                  <p className='text-xs sm:text-sm'>Total Players</p>
                   <p className='font-semibold text-xl sm:text-2xl lg:text-3xl'>
-                    {dashboardData ? formatNumber(dashboardData.users.total) : '0'}
+                    {dashboardData ? formatNumber(dashboardData.players.total) : '0'}
                   </p>
                 </div>
                 <div className="text-right">
                   <p className='text-green-500'><TrendingUp size={16} /></p>
                   <p className='text-green-500 text-xs sm:text-sm'>
-                    {dashboardData ? dashboardData.users.newThisMonth : '0'}
+                    {dashboardData ? dashboardData.players.newThisMonth : '0'}
                   </p>
                 </div>
               </div>
@@ -658,14 +677,14 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* New Users Table */}
+        {/* New Players Table */}
         <div className='flex justify-between py-1 mb-4'>
-          <p className='font-semibold text-sm sm:text-base'>New Users</p>
-          <p className='text-[#946BEF] cursor-pointer hover:underline text-sm'>View All</p>
+          <p className='font-semibold text-sm sm:text-base'>New Players</p>
+          <p className='text-[#946BEF] cursor-pointer hover:underline text-sm' onClick={() => window.location.href = '/players'}>View All</p>
         </div>
-        <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-black border-r-[6px] border-b-[4px] mb-6">
+        <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-black border-r-[6px] border-b-[4px] mb-6 max-h-[400px] overflow-y-auto">
           <table className="min-w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-gray-50 sticky top-0 z-10">
               <tr>
                 <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
                   Name
@@ -674,7 +693,7 @@ const Dashboard = () => {
                   Email Address
                 </th>
                 <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider hidden lg:table-cell">
-                  User Type
+                  Status
                 </th>
                 <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
                   Join Date
@@ -682,7 +701,9 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {recentUsers.map((user) => (
+              {recentPlayers.length === 0 ? (
+                <tr><td colSpan="4" className="px-6 py-8 text-center text-sm text-gray-400">No players yet</td></tr>
+              ) : recentPlayers.map((user) => (
                 <tr key={user.id} className="hover:bg-gray-50">
                   <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     <div>
@@ -695,12 +716,77 @@ const Dashboard = () => {
                   <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden sm:table-cell">
                     {user.email}
                   </td>
-                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden lg:table-cell">
-                    {user.userType || 'Player'}
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm hidden lg:table-cell">
+                    <span className={`px-2 py-0.5 text-xs font-semibold rounded-full ${
+                      user.status === 'active' ? 'bg-green-100 text-green-700' :
+                      user.status === 'suspended' ? 'bg-red-100 text-red-700' :
+                      'bg-gray-100 text-gray-700'
+                    }`}>{user.status}</span>
                   </td>
                   <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     <div className="lg:hidden">{new Date(user.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div>
                     <div className="hidden lg:block">{new Date(user.createdAt).toLocaleDateString()}</div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Latest Coaches Table */}
+        <div className='flex justify-between py-1 mb-4'>
+          <p className='font-semibold text-sm sm:text-base'>Latest Coaches</p>
+          <p className='text-[#946BEF] cursor-pointer hover:underline text-sm' onClick={() => window.location.href = '/players'}>View All</p>
+        </div>
+        <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-black border-r-[6px] border-b-[4px] mb-6 max-h-[400px] overflow-y-auto">
+          <table className="min-w-full">
+            <thead className="bg-gray-50 sticky top-0 z-10">
+              <tr>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
+                  Name
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider hidden sm:table-cell">
+                  Email
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider hidden lg:table-cell">
+                  Experience
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider">
+                  Status
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-400 tracking-wider hidden lg:table-cell">
+                  Joined
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {recentCoaches.length === 0 ? (
+                <tr><td colSpan="5" className="px-6 py-8 text-center text-sm text-gray-400">No coaches yet</td></tr>
+              ) : recentCoaches.map((coach) => (
+                <tr key={coach.id} className="hover:bg-gray-50">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <div>
+                      <div>{coach.User?.firstName} {coach.User?.lastName}</div>
+                      <div className="sm:hidden text-xs text-gray-500 truncate max-w-[120px]">
+                        {coach.User?.email}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden sm:table-cell">
+                    {coach.User?.email}
+                  </td>
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden lg:table-cell">
+                    {coach.experience || 0} yrs
+                  </td>
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm">
+                    <span className={`px-2 py-0.5 text-xs font-semibold rounded-full ${
+                      coach.verificationStatus === 'verified' ? 'bg-green-100 text-green-700' :
+                      coach.verificationStatus === 'rejected' ? 'bg-red-100 text-red-700' :
+                      'bg-yellow-100 text-yellow-700'
+                    }`}>{coach.verificationStatus}</span>
+                  </td>
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900 hidden lg:table-cell">
+                    {new Date(coach.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
               ))}

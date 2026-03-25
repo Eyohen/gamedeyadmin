@@ -16,7 +16,7 @@ import Community from './pages/Community';
 import Profile from './pages/Profile';
 import CreateTeam from './pages/CreateTeam';
 import Dashboard from './pages/Dashboard';
-import Users from './pages/Users';
+import Players from './pages/Players';
 import Sessions from './pages/Sessions';
 import FinOversight from './pages/FinOversight';
 import DisputeResolution from './pages/DisputeResolution';
@@ -45,9 +45,9 @@ function App() {
             </DashboardLayout>
           } />
 
-          <Route path="/users" element={
+          <Route path="/players" element={
             <DashboardLayout>
-              <Users />
+              <Players />
             </DashboardLayout>
           } />
 
